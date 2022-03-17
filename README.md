@@ -1,6 +1,7 @@
 # Checkers
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Run the deployed application here: https://tesla-checkers.herokuapp.com
 
 ## How to Run
 
