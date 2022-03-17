@@ -1,0 +1,36 @@
+#menu {
+  border: 30px ridge #5C4033;
+  border-radius: 10px;
+}
+
+#logo {
+  font-size: 2.35rem;
+  color: #FFF;
+  margin-bottom: 0.5rem;;
+  text-decoration: underline;
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+}
+
+#sub-logo {
+  font-size: 1.25rem;
+  color: #FFF;
+}
+
+.main-menu-buttons {
+  color: #555 !important;
+  background-color: #fff !important;
+}
+
+.main-menu-buttons:hover {
+  color: #555 !important;
+  background-color: #fff !important;
+}
+
+@font-face {
+  font-family: 'teslaregular';
+  src: url('../public/tesla-webfont.woff2') format('woff2'),
+       url('../public/tesla-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

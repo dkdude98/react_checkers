@@ -1,0 +1,110 @@
+.red-piece {
+  color: #8b0000;
+  font-size: 1.5em;
+}
+
+.red-piece.selected {
+  color: #8b0000;
+  font-size: 1.5em;
+  cursor: pointer;
+  animation:spin 4s linear infinite;
+  border-radius: 50%;
+  box-shadow:
+      inset 0 0 50px rgb(255, 0, 0),
+      inset 20px 0 60px rgb(153, 153, 153),
+      inset -20px 0 60px red,
+      inset 20px 0 300px rgb(153, 153, 153),
+      inset -20px 0 300px red,
+        0 0 50px rgb(168, 168, 168),   
+        -10px 0 60px rgb(167, 167, 167),
+        10px 0 60px red;
+}
+
+.red-piece:hover {
+  cursor: pointer;
+  animation:spin 4s linear infinite;
+  border-radius: 50%;
+  box-shadow:
+      inset 0 0 50px rgb(255, 0, 0),
+      inset 20px 0 60px rgb(153, 153, 153),
+      inset -20px 0 60px red,
+      inset 20px 0 300px rgb(153, 153, 153),
+      inset -20px 0 300px red,
+        0 0 50px rgb(168, 168, 168),   
+        -10px 0 60px rgb(167, 167, 167),
+        10px 0 60px red;
+}
+
+.white-piece {
+  color: #f9f9f9;
+  font-size: 1.5em;
+}
+
+.white-piece.selected {
+  color: #f9f9f9;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #000;
+  animation:spin 4s linear infinite;
+  border-radius: 50%;
+  box-shadow:
+      inset 0 0 50px #fff,
+      inset 20px 0 60px white,
+      inset -20px 0 60px rgb(0, 0, 0),
+      inset 20px 0 300px white,
+      inset -20px 0 300px rgb(0, 0, 0),
+        0 0 50px #fff,
+        -10px 0 60px white,
+        10px 0 60px rgb(0, 0, 0);
+}
+
+.white-piece:hover {
+  cursor: pointer;
+  color: #000;
+  animation:spin 4s linear infinite;
+  border-radius: 50%;
+  box-shadow:
+      inset 0 0 50px #fff,
+      inset 20px 0 60px white,
+      inset -20px 0 60px rgb(0, 0, 0),
+      inset 20px 0 300px white,
+      inset -20px 0 300px rgb(0, 0, 0),
+        0 0 50px #fff,
+        -10px 0 60px white,
+        10px 0 60px rgb(0, 0, 0);
+}
+
+.hide-on-hover {
+  display: none;
+}
+
+.highlight {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #fff !important;
+}
+
+.empty {
+  pointer-events: none;
+}
+
+.disable {
+  font-size: 1.5em;
+  pointer-events: none;
+}
+
+.capture {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #AFE1AF !important;
+}
+
+.eliminated {
+  display: none;
+}
+
+#instructions {
+  visibility: hidden;
+}

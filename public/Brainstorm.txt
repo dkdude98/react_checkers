@@ -1,0 +1,140 @@
+Initial Thoughts:
+
+* Not much insight given as to what is needed for the final game.
+* Functionality comes foremost however, so I will get a working game of checkers at the very least with two human players - both local.
+* I'd like to reach further than a simple functioning game, however. A possibility is adding in three.js for added visual effects
+* This could also be a neat way of "rotating" player turns with the camera
+* Color selection for game pieces would also be a nice touch
+* Need a main menu to start a game, read rules, select colors, etc.
+    - Second thought, can also add an option to play a set of games (Best of 1, 3, 5) so the game automatically keeps track of points, rounds, and player colors
+* Need an in-game menu to quit, read rules, or restart the current game.
+* Could use boardgame.io... for game states? heard about it, but  never actually read into it/used it
+* Timer for keeping track of total game time - I dunno
+
+* Set Up:
+    - 8 x 8 checkerboard
+    - Only the dark squares are used (4 BUILT Components - empty dark, empty light, red piece on dark, black piece on light)
+    - 24 pieces total (12 v 12)
+    - BOTTOM RIGHT corner of each side will LIGHT!
+    - 12 pieces on one side, 12 on opposite end
+    - Black goes first, red follows after (could have a virtual coin flip for color selection, but 4 days LOL)
+
+* Move:
+    - Players can only move DIAGONALLY!
+    - Singles can only move forward... in respect to that specific player
+    - Non-capturing moves = Movement of just 1 square diagonally
+
+* Capture:
+    - Jump diagonally two spaces (in a straight line) with another player in the adjacent diagnoal square in the same direction... you get it
+    - A capture is two spaces of movement (single), but players can jump multiple enemies in a single turn as long as the landing squares are empty
+    - CAPTURE TOGGLE ON/OFF (dumb rule, but could add that to main menu... or even in-game menu maybe with React being able to accomodate for that)
+        + After the first jump though, the player does not need to continue jumping... it's a choice
+
+* Kings:
+    - A piece becomes a King once it reaches the other end of the player's board
+    - Once a King, you can move in both directions (but still only diagonally)
+    - Kings can combine jumps in multiple directions though    
+
+* Screens Overview:
+    - Screens: Main Menu, Game Screen, In-Game Menu, Results Screen
+
+    - Main Menu:
+        + Cool TESLA SVG or image from website or something on load up
+        + Checkers
+        + Cool three.js checkerboard revolving or flying checkers pieces in slow-mo (that would be cool)
+        + Toggle 'One Player' and 'Two Player' - CPU will just make a random available/rule-following move if I do that right now
+        + Toggle Number of Games to be Played
+        + Toggle 'Forced Capture' (did more research and this rule is all over the place... many variants of the game)
+        + Rules Button - Leads to a modal (saw a cool thing the other day on slide up menu bar I could try out if I have time)
+        + Start Game Button - Play icon on fontawesome maybe
+        + Color Selection
+
+    - Game Screen:
+        + Checkerboard... duh
+        + In-game Menu Button (quit to Main Menu, Restart Game, Read Rules)
+        + Total enemies captured for each player
+        + 12 Starting Game Pieces (Captured ones would look cool in three.js at an angle in a vertical stack... but 4 days haha)
+        + So pieces will probably just be taken off the screen
+        + Next player's turn
+        + Player moves (select a piece on your turn, it highlights you as well as your possible moves)
+            - If jump is there, player must take it (based on setting - first starting with simple rules, no restriction)
+        + Pieces will get a crown when they become Kings (fontawesome)
+        + Timer
+
+    - In-Game Menu:
+        + Simple
+        + Read Rules
+        + Quit to Main Menu
+        + Restart Game
+
+    - Results Scren:
+        + Total Time Played
+        + Number of moves
+        + Number of pieces captured on both sides
+        + Winner
+        + Main Menu Button - Redirect players here to lessen number of screens needed
+
+* Technical Vision:
+    - React would be very useful to keep track of user turns, the pieces they currently have, how many are captured, etc.
+        + Boardgame.io is something to look into
+    - 2D is much simpler than 3D (still working on three.js skills at the moment)
+        + No matter which, we would use a grid
+    - Animations would be cool, but not necessary yet
+    - Material UI vs Bootstrap
+        + Let's try Material UI for being lightweight (never tried it out actually)
+    - Components could be built... game piece binded with a spot
+
+    - Main Menu:
+    https://threejs.org/examples/#webgl_instancing_performance
+    https://codesandbox.io/s/landing-page-n60qg?file=/src/App.js
+
+* Check for potential moves:
+    - Look at user's indexed position (from the view of the player) 0-63
+    - Cannot make move onto the light squares [0,2,4,6,9,11,13,15,16,18,20,22,25,27,29,31,32,34,36,38,41,43,45,47,48,50,52,54,57,59,61,63];
+    - 7 difference to player's right and 9 difference to player's left
+
+    - So must move on black square and difference should be 7 or 9 to give us which moves 2 moves are available on th way up.
+    - Pieces become kings when they reach the last row, give them a flag to travel other direction as well. 7, 9, -7, and -9. All directional movement
+
+    -If your current column is 0, no left moves
+    -If your current column is 8, no right moves
+
+    Example:
+
+        58
+        58[column] = 2
+        58-7 = 51
+        58-9 = 49
+        [58,2,51,49]
+        [spot,column,right,left]
+
+        56[column] = 1
+        56-7 = 49
+        56-9 = 47
+        [56,1,49,47] -> only right move
+
+        if(arr[0] == 1) {
+            spot-7 = 1 move right
+        } else if (arr[0] == 7) {
+            spot-7 and spot-9 = both moves
+        } else {
+            spot-9 = 1 move left
+        }
+
+        P1 is normal
+        P2 need to invert the numbers, so 63-spot for every one
+
+* Changing turns
+    - Red goes first
+        * after red piece click - nothing
+        * after red piece jump - disable red pieces and enable black pieces
+    - Black's turn next
+        * after black piece click - nothing
+        * after black piece jump - disable black pieces and enable red pieces
+
+
+
+
+
+
+

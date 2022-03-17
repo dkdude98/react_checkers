@@ -1,0 +1,47 @@
+html {
+  background-color: #181818;  
+}
+
+.menu.svelte-1xg9v5h {
+  border: none !important;
+  height: 30px !important;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#root {
+  width: 100vw ;
+  height: 100vh;
+}
+
+.full-height-container {
+  height: 100%;
+}
+
+.vertical-center {
+  position: relative;
+  padding: 1em;
+}
+
+#main-container {
+  position: relative;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  background-color: "rgb(101, 33, 33)";
+  border-radius: "3%";
+
+}
